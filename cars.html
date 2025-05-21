@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Joy Rides - Car Rental</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    .category-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .category-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    
+    .category-info {
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .category-info h3 {
+      margin: 0 0 0.5rem 0;
+      color: #b22222;
+    }
+    
+    .category-info p {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 0;
+    }
+    
+    .btn-explore {
+      display: inline-block;
+      background: #b22222;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: bold;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+    
+    .btn-explore:hover {
+      background: #800000;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-top: 2rem;
+      color: #b22222;
+    }
+  </style>
+</head>
+<body>
+<script>
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    alert("Please login first.");
+    window.location.href = "login.html";
+  }
+</script>
+  <header>
+    <div class="logo">Joy Rides</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="attachment.html">Attach Vehicle</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Our Vehicle Categories</h1>
+    
+    <div class="car-grid">
+      <a href="hatchback.html" class="category-card">
+        <img src="https://www.motortrend.com/uploads/f/175581286.jpg?w=768&width=768&q=75&format=webp" alt="Hatchback">
+        <div class="category-info">
+          <h3>Hatchbacks</h3>
+          <p>Compact and fuel-efficient cars perfect for city driving</p>
+          <span class="btn-explore">Explore Hatchbacks</span>
+        </div>
+      </a>
+      
+      <a href="sedan.html" class="category-card">
+        <img src="https://4kwallpapers.com/images/walls/thumbs_2t/22423.jpg" alt="Sedan">
+        <div class="category-info">
+          <h3>Sedans</h3>
+          <p>Comfortable and spacious vehicles for family trips</p>
+          <span class="btn-explore">Explore Sedans</span>
+        </div>
+      </a>
+      
+      <a href="MPV.html" class="category-card">
+        <img src="https://png.pngtree.com/thumb_back/fh260/background/20230707/pngtree-premium-city-car-for-families-3d-illustration-of-a-red-minivan-image_3827412.jpg" alt="MPV">
+        <div class="category-info">
+          <h3>MPVs</h3>
+          <p>Comfortable and spacious vehicles for large group travel</p>
+          <span class="btn-explore">Explore MPVs</span>
+        </div>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>Contact: +91-7789726726 | Office Address: Nizampet-Miyapur Rd, opp. to Sai Bhaskar Arcade, near Old age Home, Huda Complex, Mayuri Nagar, Hyderabad, Telangana 500090</p>
+    <p>Open 24/7</p>
+  </footer>
+</body>
+</html>

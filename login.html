@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Joy Rides</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script defer src="login.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">Joy Rides</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="signup.html">Sign Up</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Login to Joy Rides</h1>
+    <div style="max-width: 300px; margin: auto;">
+      <input type="email" id="email" placeholder="Email" style="width: 100%; padding: 10px; margin: 10px 0;">
+      <input type="password" id="password" placeholder="Password" style="width: 100%; padding: 10px; margin: 10px 0;">
+      <button onclick="login()" class="btn" style="width: 100%;">Login</button>
+      <p style="margin-top: 10px;">Don't have an account? <a href="signup.html">Sign Up</a></p>
+      <div id="g_id_onload"
+           data-client_id="YOUR_GOOGLE_CLIENT_ID"
+           data-callback="handleGoogleLogin"
+           data-auto_prompt="false">
+      </div>
+      <div class="g_id_signin" data-type="standard"></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Contact: +91-7789726726 | Office Address: Nizampet-Miyapur Rd, opp. to Sai Bhaskar Arcade, near Old age Home, Huda Complex, Mayuri Nagar, Hyderabad, Telangana 500090</p>
+    <p>Open 24/7</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sedans - Joy Rides</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="booking.js"></script>
+  <style>
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+	.car-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .car-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+	  transition: transform 0.3s ease;
+    }
+    .car-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .car-info {
+      padding: 1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .car-info h3 {
+      margin: 0 0 0.5rem 0;
+      color: #b22222;
+    }
+    .car-specs {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .btn-book {
+      background: #b22222;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      text-align: center;
+      font-weight: bold;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+    .btn-book:hover {
+      background: #800000;
+    }
+
+  </style>
+</head>
+<body>
+<script>
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    alert("Please login first.");
+    window.location.href = "login.html";
+  }
+</script>
+
+  <header>
+    <div class="logo">Joy Rides</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="attachment.html">Attach Vehicle</a></li>
+        <li><a href="terms.html">Terms & Conditions</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1 style="text-align:center; margin-top: 2rem; color: #b22222;">Sedans</h1>
+
+    <div class="car-grid" id="carGrid">
+      <!-- Car cards inserted by JS -->
+    </div>
+  </main>
+
+  <footer>
+    <p>Contact: +91-7789726726 | Office Address: Nizampet-Miyapur Rd, opp. to Sai Bhaskar Arcade, near Old age Home, Huda Complex, Mayuri Nagar, Hyderabad, Telangana 500090</p>
+    <p>Open 24/7</p>
+  </footer>
+
+  <script>
+    const sedanCars = [
+      {
+        id: "sedan1",
+        name: "Honda City",
+        pricePerDay: 2500,
+        fuelType: "Petrol",
+        seats: 5,
+        extra: "AC, Automatic, Music System",
+        img: "images/honda_city.jpg"
+      },
+      {
+        id: "sedan2",
+        name: "Hyundai Aura",
+        pricePerDay: 2500,
+        fuelType: "Petrol",
+        seats: 5,
+        extra: "---",
+        img: "https://imgd.aeplcdn.com/664x374/n/cw/ec/41652/aura-exterior-right-front-three-quarter-54.jpeg?q=80"
+      },
+      {
+        id: "sedan3",
+        name: "Skoda Octavia",
+        pricePerDay: 3000,
+        fuelType: "Petrol",
+        seats: 5,
+        extra: "AC, Sunroof",
+        img: "images/skoda_octavia.jpg"
+      }
+    ];
+
+    const carGrid = document.getElementById("carGrid");
+
+    sedanCars.forEach(car => {
+      const card = document.createElement("div");
+      card.className = "car-card";
+
+      card.innerHTML = `
+        <img src="${car.img}" alt="${car.name}" />
+        <div class="car-info">
+          <h3>${car.name}</h3>
+          <div class="car-specs">
+            Price: ₹${car.pricePerDay} / day<br/>
+            Fuel: ${car.fuelType}<br/>
+            Seats: ${car.seats}<br/>
+            Features: ${car.extra}
+          </div>
+          <a href="booking.html?carId=${car.id}" class="btn-book">Book Now</a>
+        </div>
+      `;
+
+      carGrid.appendChild(card);
+    });
+  </script>
+</body>
+</html>
